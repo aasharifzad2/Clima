@@ -23,22 +23,28 @@ class ChangeCityViewController: UIViewController {
     //This is the pre-linked IBOutlets to the text field:
     @IBOutlet weak var changeCityTextField: UITextField!
 
-    
-    //This is the IBAction that gets called when the user taps on the "Get Weather" button:
-    @IBAction func getWeatherPressed(_ sender: AnyObject) {
-        
-        
+    func getWeatherFunc() {
         
         //1 Get the city name the user entered in the text field
         let cityName = changeCityTextField.text!
         
-    
+        
         //2 If we have a delegate set, call the method userEnteredANewCityName
         delegate?.userEnteredANewCityName(city: cityName)
         
         //3 dismiss the Change City View Controller to go back to the WeatherViewController
         self.dismiss(animated: true, completion: nil)
         
+    }
+    
+    @IBAction func enterPressed(_ sender: Any) {
+        getWeatherFunc()
+    }
+    
+    //This is the IBAction that gets called when the user taps on the "Get Weather" button:
+    @IBAction func getWeatherPressed(_ sender: AnyObject) {
+        
+        getWeatherFunc()
         
     }
     
